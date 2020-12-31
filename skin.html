@@ -1,19 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
+
 <head>
-    <link rel="stylesheet" href="./style.css">
-    <script src="./images/style.js"></script>
+    <title>[##_page_title_##]</title>
+    <meta name="title" content="[##_page_title_##] :: [##_title_##]"/>
+    <meta name="description" Content="[##_desc_##]"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <link rel="alternate" type="application/rss+xml" title="[##_title_##]" href="[##_rss_url_##]"/>
+    <link rel="shortcut icon" href="[##_blog_link_##]favicon.ico"/>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,500,700&amp;subset=korean">
+    <link rel="stylesheet" href="./style.css"/>
+    <script src="//t1.daumcdn.net/tistory_admin/lib/jquery/jquery-1.12.4.min.js"></script>
+    <script src="//t1.daumcdn.net/tistory_admin/assets/skin/common/vh-check.min.js"></script>
+    <script src="./images/common.js" defer></script>
+    <script> (function () {
+        var test = vhCheck();
+    }()); 
+	</script>
+
+
+    <script type="text/javascript"
+            src="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-20f72adf8aa3cce778c35bb2dd05e748b4a7f88f/blogs/script/owner.js?_version_=tistory-20f72adf8aa3cce778c35bb2dd05e748b4a7f88f"></script>
+    <script type="text/javascript"
+            src="https://t1.daumcdn.net/tistory_admin/assets/blog/tistory-20f72adf8aa3cce778c35bb2dd05e748b4a7f88f/blogs/script/blog/common.js?_version_=tistory-20f72adf8aa3cce778c35bb2dd05e748b4a7f88f"></script>
+	<script data-ad-client="pub-8085131699056246" async src="https://pagead2.googlesyndication
+.com/pagead/js/adsbygoogle.js"></script>
 </head>
-<body>
+<body id="[##_body_id_##]"
+      class="[##_var_headerslogundisplay_##] [##_var_headerbannerdisplay_##] [##_var_listmore_##] [##_var_listmoremobile_##] <s_if_var_headerbannerimage>use-banner-wrp</s_if_var_headerbannerimage> <s_if_var_headersloguntitle>use-slogan-wrp</s_if_var_headersloguntitle> use-menu-[##_var_topnav_##]-wrp">
 <header id="header">
     <div class="inner-header">
         <h2><a href="/">[##_title_##]</a></h2>
-        <div class="menu">[##_blog_menu_##]</div>
-        <div class="search">
-            <s_search>
-                <input type="text" name="[##_search_name_##]" value="[##_search_text_##]" placeholder="SEARCH"
-                       onkeypress="if (event.keyCode == 13) { [##_search_onclick_submit_##] }">
-            </s_search>
+        <div class="header-menu">
+            <div class="menu">[##_blog_menu_##]</div>
+            <div class="search">
+                <input type="text" name="nav-search" value="[##_search_text_##]" placeholder="SEARCH"
+                       onkeypress="if (event.keyCode == 13) { try{window.location.href='/search/'+looseURIEncode(document.getElementsByName('nav-search')[0].value);document.getElementsByName('nav-search')[0].value='';return false;}catch(e){} }">
+            </div>
+        </div>
+        <div class="mobile-btn">
+            <a></a>
         </div>
     </div>
     <div class="header-img"></div>
@@ -22,7 +52,16 @@
     <div class="inner-section">
         <!--사이드바-->
         <nav class="nav">
-            [##_category_list_##]
+            <div class="nav-menu">[##_blog_menu_##]</div>
+            <div class="search nav-search">
+                <s_search>
+                    <input type="text" name="[##_search_name_##]" value="[##_search_text_##]" placeholder="SEARCH"
+                           onkeypress="if (event.keyCode == 13) { [##_search_onclick_submit_##] }">
+                </s_search>
+            </div>
+            <div class="nav-cartegory-list">
+                [##_category_list_##]
+            </div>
             <s_sidebar_element>
                 <!-- 최근에 올라온 글 -->
                 <div class="recentPost">
@@ -52,6 +91,21 @@
                         </s_rctps_popular_rep>
                     </ul>
                 </div>
+            </s_sidebar_element>
+            <s_sidebar_element>
+                <!-- 공지사항 -->
+                <s_rct_notice>
+                    <div class="notice">
+                        <h4>notice</h4>
+                        <ul>
+                            <s_rct_notice_rep>
+                                <li>
+                                    <a href="[##_notice_rep_link_##]">[##_notice_rep_title_##]</a>
+                                </li>
+                            </s_rct_notice_rep>
+                        </ul>
+                    </div>
+                </s_rct_notice>
             </s_sidebar_element>
             <s_sidebar_element>
                 <!-- 태그 클라우드 -->
@@ -113,26 +167,9 @@
                     </s_list_rep>
 
                     <s_list_empty>
-                        <div class="box-no-search type-search">
-                            <span>입력하신 단어의 철자가 정확한지 확인해 보세요.</span>
-                            <span>검색어의 단어 수를 줄이거나, 보다 일반적인 단어로 검색해 보세요.</span>
-                            <span>두 단어 이상의 키워드로 검색 하신 경우, 정확하게 띄어쓰기를 한 후 검색해 보세요.</span>
+                        <div class="box-no-search">
+                            <span>등록된 글이 없습니다.</span>
                         </div>
-
-                        <div class="box-no-search type-tag">
-                            <span>선택하신 태그에 해당하는 글이 없습니다.</span>
-                            <span>다른 태그를 선택하시거나, 검색 기능을 활용해 보세요.</span>
-                        </div>
-
-                        <div class="box-no-search type-category">
-                            <span>선택하신 카테고리에 해당하는 글이 없습니다.</span>
-                            <span>다른 카테고리를 선택하시거나, 검색 기능을 활용해 보세요.</span>
-                        </div>
-
-                        <div class="box-no-search type-archive">
-                            <span>선택하신 기간에 등록된 글이 없습니다.</span>
-                        </div>
-
                     </s_list_empty>
                 </s_list>
             </div>
@@ -143,9 +180,7 @@
                     <!-- s_permalink_article_rep / 뷰페이지 -->
                     <s_permalink_article_rep>
                         <!-- 이미지가 없는 경우 article-header-noimg -->
-                        <div class="article-header"
-                             thumbnail="<s_article_rep_thumbnail>https://img1.daumcdn.net/thumb/R1440x0/?scode=mtistory2&fname=[##_article_rep_thumbnail_raw_url_##]</s_article_rep_thumbnail>"
-                             style="background-image:url('')">
+                        <div class="article-header">
                             <div class="text-header">
                                 <div class="box-meta">
                                     <p class="category">[##_article_rep_category_##]</p>
@@ -153,6 +188,10 @@
                                     <div class="box-info">
                                         <span class="name">[##_article_rep_author_##]</span>
                                         <span class="date">[##_article_rep_date_##]</span>
+                                        <s_ad_div>
+                                            <a class="edit" href="[##_s_ad_m_link_##]" title="수정">수정</a>
+                                            <a class="delete" href="#" onclick="[##_s_ad_d_onclick_##]" title="삭제">삭제</a>
+                                        </s_ad_div>
                                     </div>
                                 </div>
                             </div>
@@ -214,11 +253,7 @@
                                                             <a href="#" class="link-comment"
                                                                onclick="[##_rp_rep_onclick_reply_##]">답글</a>
                                                             <div class="box-modify">
-                                                                <button type="button" class="button-modify">
-                                                                    <span class="blind">더보기</span></button>
                                                                 <ul class="list-modify">
-                                                                    <li><a href="[##_rp_rep_link_##]">댓글주소</a>
-                                                                    </li>
                                                                     <li><a href="#"
                                                                            onclick="[##_rp_rep_onclick_delete_##]">수정/삭제</a>
                                                                     </li>
@@ -242,15 +277,7 @@
                                                                             <p class="text">
                                                                                 [##_rp_rep_desc_##]</p>
                                                                             <div class="box-modify">
-                                                                                <button type="button"
-                                                                                        class="button-modify">
-                                                                                    <span class="blind">더보기</span>
-                                                                                </button>
                                                                                 <ul class="list-modify">
-                                                                                    <li>
-                                                                                        <a href="[##_rp_rep_link_##]"
-                                                                                           class="link-address">댓글주소</a>
-                                                                                    </li>
                                                                                     <li><a href="#"
                                                                                            onclick="[##_rp_rep_onclick_delete_##]">수정/삭제</a>
                                                                                     </li>
@@ -361,15 +388,13 @@
                     <!-- s_permalink_article_rep / 뷰페이지 -->
                     <s_permalink_article_rep>
                         <!-- 이미지가 없는 경우 article-header-noimg -->
-                        <div class="article-header"
-                             thumbnail="<s_article_rep_thumbnail>[##_article_rep_thumbnail_url_##]</s_article_rep_thumbnail>"
-                             style="background-image:url('')">
-                            <div class="inner-header">
+                        <div class="article-header">
+                            <div class="text-header">
                                 <div class="box-meta">
                                     <p class="category">공지사항</p>
-                                    <h2 class="title-article">[##_article_rep_title_##]</h2>
+                                    <h2 class="title">[##_article_rep_title_##]</h2>
                                     <div class="box-info">
-                                        <span class="writer">[##_article_rep_author_##]</span>
+                                        <span class="name">[##_article_rep_author_##]</span>
                                         <span class="date">[##_article_rep_date_##]</span>
                                     </div>
                                 </div>
@@ -387,10 +412,8 @@
 
                 <!-- s_notice_rep / 개별 공지사항 페이지 -->
                 <s_notice_rep>
-                    <h2 class="notice-title title-search article-title-[##_list_style_##] display-none"
-                        list-style="[##_list_style_##]"><b class="archives">공지사항</b></h2>
                     <s_index_article_rep>
-                        <article class="article-type-common article-type-[##_list_style_##]">
+                        <div class="article-type-common article-type-[##_list_style_##]">
                             <a href="[##_notice_rep_link_##]" class="link-article">
                                 <p class="thumbnail notice-thumbnail"
                                 <s_notice_rep_thumbnail> has-thumbnail="1"
@@ -400,31 +423,30 @@
                                 <img src="" class="img-thumbnail" role="presentation">
                                 </p>
                             </a>
+
                             <div class="article-content">
+                                <a href="[##_notice_rep_category_link_##]" class="link-category">공지사항</a>
                                 <a href="[##_notice_rep_link_##]" class="link-article">
                                     <strong class="title">[##_notice_rep_title_##]</strong>
                                     <p class="summary">[##_notice_rep_summary_##]</p>
                                 </a>
                                 <div class="box-meta">
-                                    <a href="[##_notice_rep_category_link_##]" class="link-category">공지사항</a>
                                     <span class="date">[##_notice_rep_simple_date_##]</span>
                                 </div>
                             </div>
-                        </article>
+                        </div>
                     </s_index_article_rep>
 
                     <!-- s_permalink_article_rep / 뷰페이지 -->
                     <s_permalink_article_rep>
                         <!-- 이미지가 없는 경우 article-header-noimg -->
-                        <div class="article-header"
-                             thumbnail="<s_notice_rep_thumbnail>[##_notice_rep_thumbnail_url_##]</s_notice_rep_thumbnail>"
-                             style="background-image:url('')">
-                            <div class="inner-header">
+                        <div class="article-header">
+                            <div class="text-header">
                                 <div class="box-meta">
                                     <p class="category">공지사항</p>
-                                    <h2 class="title-article">[##_notice_rep_title_##]</h2>
+                                    <h2 class="title">[##_notice_rep_title_##]</h2>
                                     <div class="box-info">
-                                        <span class="writer">[##_notice_rep_author_##]</span>
+                                        <span class="name">[##_notice_rep_author_##]</span>
                                         <span class="date">[##_notice_rep_date_##]</span>
                                     </div>
                                 </div>
@@ -499,15 +521,9 @@
                                                 <a href="#" class="link-comment"
                                                    onclick="[##_guest_rep_onclick_reply_##]">답글</a>
                                                 <div class="box-modify">
-                                                    <button type="button" class="button-modify"><span
-                                                            class="blind">더보기</span></button>
                                                     <ul class="list-modify">
-                                                        <li><a href="[##_rp_rep_link_##]">댓글주소</a></li>
                                                         <li><a href="#"
-                                                               onclick="[##_guest_rep_onclick_reply_##]">수정</a>
-                                                        </li>
-                                                        <li><a href="#"
-                                                               onclick="[##_guest_rep_onclick_delete_##]">삭제</a>
+                                                               onclick="[##_guest_rep_onclick_delete_##]">수정/삭제</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -530,17 +546,9 @@
                                                                 <a href="#" class="link-comment"
                                                                    onclick="[##_guest_rep_onclick_reply_##]">답글</a>
                                                                 <div class="box-modify">
-                                                                    <button type="button" class="button-modify">
-                                                                        <span class="blind">더보기</span></button>
                                                                     <ul class="list-modify">
-                                                                        <li>
-                                                                            <a href="[##_rp_rep_link_##]">댓글주소</a>
-                                                                        </li>
                                                                         <li><a href="#"
-                                                                               onclick="[##_guest_rep_onclick_reply_##]">수정</a>
-                                                                        </li>
-                                                                        <li><a href="#"
-                                                                               onclick="[##_guest_rep_onclick_delete_##]">삭제</a>
+                                                                               onclick="[##_guest_rep_onclick_delete_##]">수정/삭제</a>
                                                                         </li>
                                                                     </ul>
                                                                 </div>
@@ -562,14 +570,14 @@
                                         <s_guest_member>
                                             <s_guest_form>
                                                 <div class="box-account">
-                                                    <input type="text" name="[##_guest_input_name_##]"
-                                                           value="이름" title="이름" placeholder="이름"/>
-                                                    <input type="text" name="[##_guest_input_password_##]"
-                                                           value="비밀번호" title="비밀번호" placeholder="비밀번호"/>
+                                                    <input type="text" name="[##_guest_input_name_##]" title="이름"
+                                                           placeholder="이름"/>
+                                                    <input type="password" name="[##_guest_input_password_##]" title="비밀번호"
+                                                           placeholder="비밀번호"/>
                                                 </div>
                                                 <div class="box-homepage">
-                                                    <input type="url" name="[##_guest_input_homepage_##]"
-                                                           value="홈페이지" title="홈페이지" placeholder="홈페이지"/>
+                                                    <input type="url" name="[##_guest_input_homepage_##]" title="홈페이지"
+                                                           placeholder="홈페이지"/>
                                                 </div>
                                             </s_guest_form>
                                         </s_guest_member>
@@ -607,15 +615,13 @@
                 <s_paging>
                     <!-- area_paging -->
                     <div class="paging-box">
-                        <a [##_prev_page_##] class="link_page link_prev [##_no_more_prev_##]"><span
-                                class="xi-angle-left-min"></span></a>
+                        <a [##_prev_page_##] class="link_page link_prev [##_no_more_prev_##]"></a>
                         <div class="paging_num">
                             <s_paging_rep>
                                 <a [##_paging_rep_link_##] class="link_num">[##_paging_rep_link_num_##]</a>
                             </s_paging_rep>
                         </div>
-                        <a [##_next_page_##] class="link_page link_next [##_no_more_next_##]"><span
-                                class="xi-angle-right-min"></span></a>
+                        <a [##_next_page_##] class="link_page link_next [##_no_more_next_##]"></a>
                     </div>
                     <!-- // area_paging -->
                 </s_paging>
@@ -660,7 +666,6 @@
                                         </article>
                                     </s_cover_item>
                                 </div>
-
                                 <button type="button" class="button-more">더보기</button>
                             </div>
                         </s_cover>
@@ -830,8 +835,16 @@
 </section>
 <footer>
     <div class="inner-footer">
-        Footer
+        Copyright ⓒ 김평범 All rights reserved.
     </div>
 </footer>
+
+			<img src="./images/new.png" style="display:none;"/>
+	<script>
+    $('.tt_category img, .category-view .title img').each(function(){
+			console.log("aa");
+        $(this).replaceWith('<img src="./images/new.png" />');
+    });
+	</script>
 </body>
 </html>
