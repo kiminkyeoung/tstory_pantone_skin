@@ -446,8 +446,8 @@ article {
     color: #333;
 }
 .article-content .title img{
-    margin:0 0 0 5px;
-    vertical-align:middle;
+ margin:0 0 0 5px;
+	vertical-align:middle;
 }
 
 .article-content .title:before {
@@ -523,7 +523,7 @@ article {
     font-size:14px;
     padding: 50px 0;
     font-weight:300;
-    line-height:1.6;
+	line-height:1.6;
 }
 #tt-body-page h2[data-ke-size], #tt-body-page h3[data-ke-size], #tt-body-page h4[data-ke-size] {
     font-weight:600;
@@ -538,11 +538,11 @@ article {
 }
 
 code {
-    background: #efefef;
+		background: #efefef;
     padding: 0 5px;
     border-radius: 3px;
     color: #FF5544;
-
+	
 }
 /*tag*/
 .box-tag a {
@@ -643,7 +643,11 @@ code {
     font-size: 12px;
     font-weight: 300;
 }
-
+.list-reply li p.text,
+.list-reply-comment li p.text {
+	font-size:13px; 
+	font-weight:300;
+}
 .relay-write-btn {
     cursor: pointer;
     transition: all .2s ease;
